@@ -1,0 +1,17 @@
+version: '3'
+volumes:
+  data:
+services:
+  db:
+    image: mariadb:lts-jammy
+    container_name: mariadb01
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: main
+      MYSQL_PASSWORD: main
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
